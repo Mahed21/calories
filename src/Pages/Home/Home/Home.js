@@ -1,10 +1,16 @@
 import React from 'react';
+import CalorieCard from '../CalorieCard/CalorieCard';
 import './Home.css';
 
 const Home = () => {
     return (
-        <div>
-            Home
+        <div className='home-layout'>
+            <div>
+                Home
+            </div>
+            <div>
+                <CalorieCard></CalorieCard>
+            </div>
         </div>
     );
 };

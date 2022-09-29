@@ -1,0 +1,4 @@
+.home-layout{
+    display: grid;
+    grid-template-columns: 7fr 6fr;
+}
