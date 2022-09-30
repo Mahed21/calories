@@ -1,8 +1,9 @@
 import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
-import CalorieCard from '../Home/CalorieCard';
 import 'react-day-picker/dist/style.css';
+import { useQuery } from 'react-query';
+import TotalCalorieRow from './TotalCalorieRow';
 
 const TotalCalorie = () => {
     const [selected, setSelected] = useState(new Date())
@@ -11,6 +12,14 @@ const TotalCalorie = () => {
     if (selected) {
         footer = <p>You picked {format(selected, 'PP')}.</p>;
     }
+
+    const { data: calories, isLoading, refetch } = useQuery('calories', () => fetch('http://localhost:5000/calorie').then(res => res.json()))
+
+    if (isLoading) {
+        return <div>Loading</div>
+    }
+
+
     return (
         <div>
             <h3 className='text-center'>All Calorie Intakes</h3>
@@ -24,30 +33,13 @@ const TotalCalorie = () => {
             </div>
             <div className='m-3'>
                 <div className='row'>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
-                    <div className='col col-12 col-md-12 col-lg-6 my-3'>
-                        <CalorieCard />
-                    </div>
+                    {
+                        calories.map((calorie, index) => <TotalCalorieRow
+                            key={calories._id}
+                            calorie={calorie}
+                            refetch={refetch}
+                        ></TotalCalorieRow>)
+                    }
                 </div>
             </div>
         </div>
