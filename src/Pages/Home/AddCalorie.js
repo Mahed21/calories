@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import 'react-day-picker/dist/style.css';
+import { format } from 'date-fns';
+import { DayPicker } from 'react-day-picker';
 
 const AddCalorie = () => {
+
+    const [selected, setSelected] = useState(new Date())
+
+    let footer = <p>Please pick a day.</p>;
+    if (selected) {
+        footer = <p>You picked {format(selected, 'PP')}.</p>;
+    }
+
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imageStorageKey = 'a1d7d3a7e4fde5cadc71e0a2315af238';
     const onSubmit = async data => {
@@ -20,7 +31,8 @@ const AddCalorie = () => {
                         name: data.calorieName,
                         calorieCount: data.calorieCount,
                         quantity: data.quantity,
-                        img: img
+                        img: img,
+                        date: selected
                     };
                     fetch(`http://localhost:5000/calorie`, {
                         method: 'POST',
@@ -68,6 +80,14 @@ const AddCalorie = () => {
                     type="file"
                     className=""
                     {...register("image")}
+                />
+            </div>
+            <div>
+                <DayPicker
+                    mode="single"
+                    selected={selected}
+                    onSelect={setSelected}
+                    footer={footer}
                 />
             </div>
             <input className='btn btn-secondary' type="submit" value="Add Doctor" />
