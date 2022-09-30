@@ -13,7 +13,7 @@ const Navbar = () => {
                                 <Link to='/' type="button" class="btn btn-danger me-1">Home</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to='/' type="button" class="btn btn-danger me-1">About</Link>
+                                <Link to='/about' type="button" class="btn btn-danger me-1">About</Link>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="btn btn-light">Login</button>
