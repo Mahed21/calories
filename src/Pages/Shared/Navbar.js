@@ -1,29 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import UseAuth from "../../Context/UseAuth";
 
 const Navbar = () => {
-    return (
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <Link type="button" class="btn btn-light navbar-brand" to="/">Calorie Calculator</Link>
-                <div>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <div className='d-flex'>
-                            <li class="nav-item">
-                                <Link to='/' type="button" class="btn btn-light me-1">Home</Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link to='/about' type="button" class="btn btn-light me-1">About</Link>
-                            </li>
-                            <li class="nav-item">
-                                <button type="button" class="btn btn-danger">Login</button>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
+  const { user, Logout } = UseAuth();
+  // console.log(user);
+  // console.log(user.email);
+  return (
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid">
+        <Link type="button" className="btn btn-light navbar-brand" to="/">
+          Calorie Calculator
+        </Link>
+        <div>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <div className="d-flex">
+              <li className="nav-item">
+                <Link to="/" type="button" className="btn btn-light me-1">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" type="button" className="btn btn-light me-1">
+                  About
+                </Link>
+              </li>
+              {!user.email ? (
+                <li className="nav-item">
+                  <Link to="/login">
+                    {" "}
+                    <button type="button" className="btn btn-danger">
+                      Login
+                    </button>
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={Logout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              )}
             </div>
-        </nav>
-    );
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
