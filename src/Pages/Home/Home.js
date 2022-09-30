@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import CalorieCard from "../Home/CalorieCard";
 import AddCalorie from "./AddCalorie";
+import RecentCalories from "./RecentCalories";
 
 const Home = () => {
   return (
@@ -14,9 +14,7 @@ const Home = () => {
         </Col>
         <Col xs={12} lg={12}>
           <h5>Recent calorie intakes</h5>
-          <CalorieCard />
-          <CalorieCard />
-          <CalorieCard />
+          <RecentCalories />
           <div className="d-flex justify-content-end">
             <Link to="/totalCalorie" type="button" class="btn btn-danger">
               View All
