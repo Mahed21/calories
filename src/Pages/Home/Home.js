@@ -6,10 +6,10 @@ const Home = () => {
     return (
         <Container fluid>
             <Row>
-                <Col xs={6}>
+                <Col xs={12} lg={6}>
                     <h5>Add new calorie intake</h5>
                 </Col>
-                <Col xs={6}>
+                <Col xs={12} lg={6}>
                     <h5>Recent calorie intakes</h5>
                     <CalorieCard />
                     <CalorieCard />
