@@ -3,17 +3,20 @@ import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { useQuery } from 'react-query';
+import UseAuth from '../../Context/UseAuth';
 import TotalCalorieRow from './TotalCalorieRow';
 
 const TotalCalorie = () => {
-    const [selected, setSelected] = useState(new Date())
+    const user = UseAuth();
+    const email = user?.user?.email;
 
+    const [selected, setSelected] = useState(new Date())
     let footer = <p>Please pick a day.</p>;
     if (selected) {
         footer = <p>You picked {format(selected, 'PP')}.</p>;
     }
 
-    const { data: calories, isLoading, refetch } = useQuery('calories', () => fetch('http://localhost:5000/calorie').then(res => res.json()))
+    const { data: calories, isLoading, refetch } = useQuery('calories', () => fetch(`http://localhost:5000/calories/${email}`).then(res => res.json()))
 
     if (isLoading) {
         return <div>Loading</div>
