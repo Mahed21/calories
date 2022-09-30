@@ -1,10 +1,13 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import UseAuth from "../../Context/UseAuth";
 import AddCalorie from "./AddCalorie";
 import RecentCalories from "./RecentCalories";
 
 const Home = () => {
+  const user = UseAuth();
+  const email = user?.user?.email;
   return (
     <Container fluid>
       <Row>
@@ -15,11 +18,16 @@ const Home = () => {
         <Col xs={12} lg={12}>
           <h5>Recent calorie intakes</h5>
           <RecentCalories />
-          <div className="d-flex justify-content-end">
-            <Link to="/totalCalorie" type="button" class="btn btn-danger">
-              View All
-            </Link>
-          </div>
+          {
+            email ?
+              <div className="d-flex justify-content-end">
+                <Link to="/totalCalorie" type="button" class="btn btn-danger">
+                  View All
+                </Link>
+              </div>
+              :
+              <></>
+          }
         </Col>
       </Row>
     </Container>

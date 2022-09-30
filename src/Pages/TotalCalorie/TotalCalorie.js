@@ -37,11 +37,15 @@ const TotalCalorie = () => {
             <div className='m-3'>
                 <div className='row'>
                     {
-                        calories.map((calorie, index) => <TotalCalorieRow
-                            key={calories._id}
-                            calorie={calorie}
-                            refetch={refetch}
-                        ></TotalCalorieRow>)
+                        email ?
+                            calories.map((calorie, index) => <TotalCalorieRow
+                                key={calories._id}
+                                calorie={calorie}
+                                refetch={refetch}
+                            ></TotalCalorieRow>)
+                            : <div>
+                                Login to view Data
+                            </div>
                     }
                 </div>
             </div>

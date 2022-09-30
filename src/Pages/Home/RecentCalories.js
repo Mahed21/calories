@@ -20,11 +20,15 @@ const RecentCalories = () => {
             <div className='m-3'>
                 <div className='row'>
                     {
-                        calories.slice(0, 4).map((calorie, index) => <CalorieCard
-                            key={calories._id}
-                            calorie={calorie}
-                            refetch={refetch}
-                        ></CalorieCard>)
+                        email ?
+                            calories.slice(0, 4).map((calorie, index) => <CalorieCard
+                                key={calories._id}
+                                calorie={calorie}
+                                refetch={refetch}
+                            ></CalorieCard>)
+                            : <div>
+                                Login to View Data
+                            </div>
                     }
                 </div>
             </div>
