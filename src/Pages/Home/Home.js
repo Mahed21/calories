@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CalorieCard from '../Home/CalorieCard';
+import AddCalorie from './AddCalorie';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Row>
                 <Col xs={12} lg={6}>
                     <h5>Add new calorie intake</h5>
+                    <AddCalorie />
                 </Col>
                 <Col xs={12} lg={6}>
                     <h5>Recent calorie intakes</h5>
