@@ -12,7 +12,7 @@
 //     isLoading,
 //     refetch,
 //   } = useQuery("calories", () =>
-//     fetch(`http://localhost:5000/calories/${email}`).then((res) => res.json())
+//     fetch(`https://calories-new-server-8v018vu3g-7rahib.vercel.app/${email}`).then((res) => res.json())
 //   );
 
 //   if (isLoading) {

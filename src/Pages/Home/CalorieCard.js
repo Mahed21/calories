@@ -13,7 +13,7 @@
 //   const handleDelete = (id) => {
 //     //console.log(id);
 
-//     const url = `http://localhost:5000/calorie/${id}`;
+//     const url = `https://calories-new-server-8v018vu3g-7rahib.vercel.app/${id}`;
 //     fetch(url, {
 //       method: "DELETE",
 //     })
