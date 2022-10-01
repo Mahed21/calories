@@ -56,19 +56,42 @@ const AddCalorie = () => {
           <input
             type="text"
             className="input input-bordered w-full max-w-xs"
-            {...register("calorieName")}
+            {...register("calorieName", {
+              required: {
+                value: true,
+                message: 'Calorie Name is Required'
+              }
+            })}
           />
+          <label className="d-flex label">
+            {errors.calorieName?.type === 'required' && <span className="label-text-alt text-danger">{errors.calorieName.message}</span>}
+          </label>
         </div>
         <div className="mb-3">
           <label>Quantity</label>
           <br />
-
-          <input type="text" className="" {...register("quantity")} />
+          <input type="text" className="" {...register("quantity", {
+            required: {
+              value: true,
+              message: 'Quantity is Required'
+            }
+          })} />
+          <label className="d-flex label">
+            {errors.quantity?.type === 'required' && <span className="label-text-alt text-danger">{errors.quantity.message}</span>}
+          </label>
         </div>
         <div className="mb-3">
           <label>Calories per serving</label>
           <br />
-          <input type="text" className="" {...register("calorieCount")} />
+          <input type="text" className="" {...register("calorieCount", {
+            required: {
+              value: true,
+              message: 'Calorie Count is Required'
+            }
+          })} />
+          <label className="d-flex label">
+            {errors.calorieCount?.type === 'required' && <span className="label-text-alt text-danger">{errors.calorieCount.message}</span>}
+          </label>
         </div>
         <div className="mb-3">
           <input

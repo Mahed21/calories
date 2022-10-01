@@ -21,7 +21,6 @@ const RecentCalories = () => {
 
   return (
     <div className="container mt-5">
-      <h3 className="text-center">All Calorie Intakes</h3>
       <div className="m-3">
         <div className="row">
           {email || calories ? (

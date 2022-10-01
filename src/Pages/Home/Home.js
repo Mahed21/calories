@@ -16,7 +16,7 @@ const Home = () => {
           <AddCalorie />
         </Col>
         <Col xs={12} lg={12}>
-          <h5>Recent calorie intakes</h5>
+          <h3 className="text-center mt-5">Recent calorie intakes</h3>
           <RecentCalories />
           {email ? (
             <div className="d-flex justify-content-end">

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Sample from "../../Assets/Images/sample.jpg";
 
-const CalorieCard = ({ calorie }) => {
+const CalorieCard = ({ calorie, refetch }) => {
   const navigate = useNavigate();
 
   const { _id, name, quantity, calorieCount, img, totalCalorieCount } = calorie;
@@ -21,6 +21,7 @@ const CalorieCard = ({ calorie }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           alert("deleted successfully");
+          refetch();
         }
       });
   };
