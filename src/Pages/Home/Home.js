@@ -12,12 +12,11 @@ const Home = () => {
     <Container fluid>
       <Row>
         <Col xs={12} lg={12}>
-          <h5 className="text-center mt-5">Add new calorie intake</h5>
           <AddCalorie />
         </Col>
         <Col xs={12} lg={12}>
-          <h3 className="text-center mt-5">Recent calorie intakes</h3>
-          <RecentCalories />
+          {/* <h3 className="text-center mt-5">Recent calorie intakes</h3> */}
+          {/* <RecentCalories />
           {email ? (
             <div className="d-flex justify-content-end">
               <Link to="/totalCalorie" type="button" class="btn btn-danger">
@@ -26,7 +25,7 @@ const Home = () => {
             </div>
           ) : (
             <></>
-          )}
+          )} */}
         </Col>
       </Row>
     </Container>

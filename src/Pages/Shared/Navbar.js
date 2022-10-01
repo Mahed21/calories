@@ -45,6 +45,17 @@ const Navbar = () => {
                   </button>
                 </li>
               )}
+              {user.email ? (
+                <li className="nav-item ms-2">
+                  <Link to="/totalCalorie">
+                    <button type="button" className="btn btn-danger">
+                      Saved Calories
+                    </button>
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
             </div>
           </ul>
         </div>
