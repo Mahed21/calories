@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
@@ -7,20 +7,23 @@ import moment from "moment/moment";
 import axios from "axios";
 
 const UpdateCalorie = () => {
+    const nameRef = useRef();
+    const quantityRef = useRef();
+    const calorieRef = useRef();
     const [selectedImage, setSelectedImage] = useState("");
     const [uploadedImage, setUploadedImage] = useState("");
-    const [name, setName] = useState("");
-    const [quantity, setQuantity] = useState("");
-    const [calories, setCalories] = useState("");
-    const handleName = (e) => {
-        setName(e.target.value);
-    };
-    const handleQuantity = (e) => {
-        setQuantity(e.target.value);
-    };
-    const handleCalorie = (e) => {
-        setCalories(e.target.value);
-    };
+    // const [name, setName] = useState("");
+    // const [quantity, setQuantity] = useState("");
+    // const [calories, setCalories] = useState("");
+    // const handleName = (e) => {
+    //     setName(e.target.value);
+    // };
+    // const handleQuantity = (e) => {
+    //     setQuantity(e.target.value);
+    // };
+    // const handleCalorie = (e) => {
+    //     setCalories(e.target.value);
+    // };
 
     const { _id } = useParams();
     const {
@@ -47,14 +50,17 @@ const UpdateCalorie = () => {
                 const { data } = res;
                 setUploadedImage(data?.url);
                 if (uploadedImage) {
+                    const name = nameRef.current.value;
+                    const quantity = quantityRef.current.value;
+                    const calorie = calorieRef.current.value;
                     const quantityInt = parseInt(quantity);
-                    const calorieCount = parseInt(calories);
+                    const calorieCount = parseInt(calorie);
 
                     const totalCalorieCount = parseInt(quantityInt * calorieCount);
                     console.log(uploadedImage);
                     const updateCalorie = {
                         name: name,
-                        calorieCount: calories,
+                        calorieCount: calorie,
                         quantity: quantity,
                         date: today,
                         email: user?.email,
@@ -93,7 +99,7 @@ const UpdateCalorie = () => {
                         type="text"
                         className="input input-bordered w-full max-w-xs"
                         defaultValue={singleCalorie?.name}
-                        onBlur={handleName}
+                        ref={nameRef}
                     />
                 </div>
                 <div className="mb-3">
@@ -103,7 +109,7 @@ const UpdateCalorie = () => {
                         type="text"
                         className=""
                         defaultValue={singleCalorie?.quantity}
-                        onBlur={handleQuantity}
+                        ref={quantityRef}
                     />
                 </div>
                 <div className="mb-3">
@@ -113,7 +119,7 @@ const UpdateCalorie = () => {
                         type="text"
                         className=""
                         defaultValue={singleCalorie?.calorieCount}
-                        onBlur={handleCalorie}
+                        ref={calorieRef}
                     />
                 </div>
                 <div className="mb-3">
