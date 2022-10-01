@@ -89,7 +89,7 @@ const Footer = () => {
           <h5>Private Policy</h5>
         </Link>
       </div>
-      <p className="footer-end text-center mt-3">calories calculator@2022</p>
+      <p className="footer-end text-center mt-3">Calories Calculator @2022</p>
     </div>
   );
 };

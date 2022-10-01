@@ -12,7 +12,7 @@ const TotalCalorie = () => {
   const email = user?.user?.email;
 
   const [selected, setSelected] = useState(new Date());
-  console.log(moment(selected).format("MMM Do YY"));
+  let searchDate = moment(selected).format("MMM Do YY");
   let footer = <p>Please pick a day.</p>;
   if (selected) {
     footer = <p>You picked {format(selected, "PP")}.</p>;
@@ -23,7 +23,7 @@ const TotalCalorie = () => {
     isLoading,
     refetch,
   } = useQuery("calories", () =>
-    fetch(`http://localhost:5000/calories/${email}`).then((res) => res.json())
+    fetch(`http://localhost:5000/calories/${email}?date=${searchDate}`).then((res) => res.json())
   );
 
   if (isLoading) {

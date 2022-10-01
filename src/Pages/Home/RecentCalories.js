@@ -29,7 +29,7 @@ const RecentCalories = () => {
               ?.slice(0, 4)
               .map((calorie, index) => (
                 <CalorieCard
-                  key={calories._id}
+                  key={calorie._id}
                   calorie={calorie}
                   refetch={refetch}
                 ></CalorieCard>
