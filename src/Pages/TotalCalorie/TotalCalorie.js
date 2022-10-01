@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import moment from "moment/moment";
 import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
@@ -11,6 +12,7 @@ const TotalCalorie = () => {
   const email = user?.user?.email;
 
   const [selected, setSelected] = useState(new Date());
+  console.log(moment(selected).format("MMM Do YY"));
   let footer = <p>Please pick a day.</p>;
   if (selected) {
     footer = <p>You picked {format(selected, "PP")}.</p>;
@@ -39,8 +41,9 @@ const TotalCalorie = () => {
           footer={footer}
         />
       </div>
+
       <div className="m-3">
-        <div className="row">
+        <div className="row ">
           {email ? (
             calories.map((calorie, index) => (
               <TotalCalorieRow

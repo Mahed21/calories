@@ -13,12 +13,12 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
 
   return (
     <div className="col col-12 col-md-12 col-lg-6 my-3">
-      <div class="card float-right mb-2">
-        <div class="row">
-          <div class="col-sm-5">
+      <div className="card float-right mb-2 pb-2">
+        <div className="row">
+          <div className="col-sm-5 ">
             {calorie?.img ? (
               <img
-                class="d-block img-fluid"
+                className="d-block img-fluid"
                 width={250}
                 height={200}
                 src={img}
@@ -26,7 +26,7 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
               />
             ) : (
               <img
-                class="d-block img-fluid"
+                className="d-block img-fluid"
                 src={Sample}
                 width={250}
                 height={200}
@@ -34,8 +34,8 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
               />
             )}
           </div>
-          <div class="col-sm-7 pt-2">
-            <div class="card-block">
+          <div className="col-sm-7 pt-2">
+            <div className="card-block">
               <p className="fw-semibold fs-5">{name}</p>
               <p>Calorie(per serving): {calorieCount}</p>
               <p>Quantity: {quantity}</p>
@@ -43,7 +43,7 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
               <br />
               <button
                 onClick={() => handleUpdate(_id)}
-                class="btn btn-primary btn-sm float-right"
+                className="btn btn-primary btn-sm float-right"
               >
                 Update
               </button>
