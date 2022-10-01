@@ -32,7 +32,7 @@ const AddCalorie = () => {
         calorieCount: data.calorieCount,
         quantity: data.quantity,
         date: moment(today).format("MMM Do YY"),
-        email: user?.user?.email,
+        email: user.email,
         totalCalorieCount: totalCalorieCount,
       };
       fetch(`http://localhost:5000/calorie`, {
