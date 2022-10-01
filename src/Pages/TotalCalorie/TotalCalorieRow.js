@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sample from '../../Assets/Images/sample.jpg';
 
 const TotalCalorieRow = ({ calorie, refetch }) => {
-    const { name, quantity, calorieCount, img, totalCalorieCount } = calorie;
+    const navigate = useNavigate();
+
+    const { _id, name, quantity, calorieCount, img, totalCalorieCount } = calorie;
+
+    const handleUpdate = (_id) => {
+        navigate(`/updateCalorie/${_id}`)
+    }
 
     return (
         <div className='col col-12 col-md-12 col-lg-6 my-3'>
@@ -18,11 +25,11 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
                     <div class="col-sm-7 pt-2">
                         <div class="card-block">
                             <p className='fw-semibold fs-5'>{name}</p>
-                            <p>Calorie(per): {calorieCount}</p>
+                            <p>Calorie(per serving): {calorieCount}</p>
                             <p>Quantity: {quantity}</p>
                             <p>Total Calorie: {totalCalorieCount}</p>
                             <br />
-                            <button class="btn btn-primary btn-sm float-right">Update</button>
+                            <button onClick={() => handleUpdate(_id)} class="btn btn-primary btn-sm float-right">Update</button>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import Register from "./Pages/Authentication/Register";
 import TotalCalorie from "./Pages/TotalCalorie/TotalCalorie";
 import About from "./Pages/Home/About";
 import AuthProvider from "./Context/AuthProvider";
+import UpdateCalorie from "./Pages/UpdateCalorie/UpdateCalorie";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/totalCalorie" element={<TotalCalorie />} />
           <Route path="/about" element={<About />} />
+          <Route path="/updateCalorie/:_id" element={<UpdateCalorie />} />
         </Routes>
       </AuthProvider>
     </div>

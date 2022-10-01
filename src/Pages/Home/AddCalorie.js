@@ -9,8 +9,6 @@ const AddCalorie = () => {
   let navigate = useNavigate();
   const { user } = UseAuth();
   let today = new Date();
-  console.log(moment(today).format("MMM Do YY"));
-  console.log(user.email);
   const {
     register,
     formState: { errors },
@@ -20,12 +18,10 @@ const AddCalorie = () => {
 
   const onSubmit = (data) => {
     if (user.email) {
-      console.log("hi");
       const quantity = parseInt(data.quantity);
       const calorieCount = parseInt(data.calorieCount);
 
       const totalCalorieCount = parseInt(quantity * calorieCount);
-      console.log(totalCalorieCount);
 
       const updateProfile = {
         name: data.calorieName,
@@ -44,11 +40,9 @@ const AddCalorie = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           reset();
         });
     } else {
-      console.log("hello");
       navigate("/login");
     }
   };
@@ -57,7 +51,7 @@ const AddCalorie = () => {
     <div className="d-flex justify-content-center">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <label>Amount of Calorie</label>
+          <label>Name of Food</label>
           <br />
           <input
             type="text"
@@ -66,13 +60,13 @@ const AddCalorie = () => {
           />
         </div>
         <div className="mb-3">
-          <label>Amount of Calorie</label>
+          <label>Quantity</label>
           <br />
 
           <input type="text" className="" {...register("quantity")} />
         </div>
         <div className="mb-3">
-          <label>Quantity</label>
+          <label>Calories per serving</label>
           <br />
           <input type="text" className="" {...register("calorieCount")} />
         </div>
@@ -80,7 +74,7 @@ const AddCalorie = () => {
           <input
             type="text"
             className="ps-2"
-            value={moment(today).format("MMM Do YY")}
+            defaultValue={moment(today).format("MMM Do YY")}
           />
         </div>
         <input

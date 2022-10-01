@@ -39,7 +39,7 @@ const TotalCalorie = () => {
                     {
                         email ?
                             calories.map((calorie, index) => <TotalCalorieRow
-                                key={calories._id}
+                                key={calorie._id}
                                 calorie={calorie}
                                 refetch={refetch}
                             ></TotalCalorieRow>)
