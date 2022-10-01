@@ -31,8 +31,8 @@ const TotalCalorie = () => {
   }
 
   return (
-    <div>
-      <h3 className="text-center">All Calorie Intakes</h3>
+    <div className="container mt-5">
+      <h3 className="text-center mb-2">All Calorie Intakes</h3>
       <div className="d-flex justify-content-center">
         <DayPicker
           mode="single"

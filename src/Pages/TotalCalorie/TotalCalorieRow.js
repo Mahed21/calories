@@ -10,6 +10,22 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
   const handleUpdate = (_id) => {
     navigate(`/updateCalorie/${_id}`);
   };
+  const handleDelete = (id) => {
+    //console.log(id);
+
+    const url = `http://localhost:5000/calorie/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          alert("deleted successfully");
+          // const remain = handleProducts.filter((user) => user._id !== id);
+          // setHandleProducts(remain);
+        }
+      });
+  };
 
   return (
     <div className="col col-12 col-md-12 col-lg-6 my-3">
@@ -43,9 +59,15 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
               <br />
               <button
                 onClick={() => handleUpdate(_id)}
-                className="btn btn-primary btn-sm float-right"
+                className="loginBtn ps-3 pe-3 pt-1 pb-1"
               >
                 Update
+              </button>
+              <button
+                onClick={() => handleDelete(_id)}
+                className="loginBtn ps-3 pe-3 pt-1 pb-1 ms-2"
+              >
+                Delete
               </button>
             </div>
           </div>
