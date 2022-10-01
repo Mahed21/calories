@@ -9,6 +9,7 @@ import TotalCalorie from "./Pages/TotalCalorie/TotalCalorie";
 import About from "./Pages/Home/About";
 import AuthProvider from "./Context/AuthProvider";
 import UpdateCalorie from "./Pages/UpdateCalorie/UpdateCalorie";
+import Footer from "./Pages/Shared/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/updateCalorie/:_id" element={<UpdateCalorie />} />
         </Routes>
+        <Footer></Footer>
       </AuthProvider>
     </div>
   );
