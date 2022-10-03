@@ -18,18 +18,6 @@ const UseFirebase = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   //google signIn
-  const googleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // The signed-in user info.
-        setUser(result.user);
-
-        //console.log(user);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
 
   //email password sign in
   const emailPassSignIn = (email, pass, navigate, name) => {
@@ -95,7 +83,6 @@ const UseFirebase = () => {
   }, []);
 
   return {
-    googleSignIn,
     user,
     Logout,
     emailPassSignIn,

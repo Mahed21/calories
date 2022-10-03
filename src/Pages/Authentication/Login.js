@@ -5,7 +5,7 @@ import "./Authentication.css";
 
 const Login = () => {
   let navigate = useNavigate();
-  const { googleSignIn, user, emailPassLogIn } = UseAuth();
+  const { user, emailPassLogIn } = UseAuth();
   if (user.email) {
     navigate("/");
   }
@@ -30,10 +30,20 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             <h3 className="text-center mb-4">login</h3>
             <label>Enter Email</label>
-            <input className="mb-3 w-100" type="email" onBlur={emailHandle} />
+            <input
+              className="mb-3 w-100"
+              type="email"
+              onBlur={emailHandle}
+              required
+            />
             <br />
             <label>Enter Password</label>
-            <input className="w-100" type="password" onBlur={passHandle} />
+            <input
+              className="w-100"
+              type="password"
+              onBlur={passHandle}
+              required
+            />
             <span>
               Dont have an account? <Link to="/register">create Account</Link>{" "}
             </span>
@@ -46,13 +56,6 @@ const Login = () => {
             />
             <br />
           </form>
-          <p className="text-center mt-2">OR</p>
-          <button
-            className="mt-3 loginBtn  w-100 pt-2 pb-2"
-            onClick={googleSignIn}
-          >
-            Login With Google
-          </button>
         </div>
         <div className="col-lg-4"></div>
       </div>

@@ -122,6 +122,7 @@ const AddCalorie = () => {
               type="text"
               className="ps-2"
               defaultValue={moment(today).format("MMM Do YY")}
+              readOnly
             />
           </div>
           <input

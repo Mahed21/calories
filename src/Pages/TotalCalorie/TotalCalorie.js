@@ -21,7 +21,7 @@ const TotalCalorie = () => {
   }
 
   useEffect(() => {
-    fetch(`https://calories-new-server-8v018vu3g-7rahib.vercel.app/calories/${email}`).then((res) =>
+    fetch(`http://localhost:5000/calories/${email}`).then((res) =>
       res.json().then((data) => {
         arrayList = data.filter((data) => data.date === searchDate);
         setCalories(arrayList);

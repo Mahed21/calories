@@ -29,7 +29,7 @@ const TotalCalorieRow = ({ calorie, refetch }) => {
 
   return (
     <div className="col col-12 col-md-12 col-lg-6 my-3">
-      <div className="card float-right mb-2 pb-2">
+      <div className="card float-right mb-2 pb-2 h-100">
         <div className="row">
           <div className="col-sm-5 ">
             {calorie?.img ? (

@@ -1,6 +1,6 @@
 import { Button } from "bootstrap";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../Context/UseAuth";
 
 const Register = () => {
@@ -38,17 +38,37 @@ const Register = () => {
           <form onSubmit={handleRegister}>
             <h3 className="text-center mb-4">Create Account</h3>
             <label>Enter Name</label>
-            <input className="mb-3 w-100" type="text" onBlur={handleName} />
+            <input
+              className="mb-3 w-100"
+              type="text"
+              onBlur={handleName}
+              required
+            />
             <br />
             <label>Enter Email</label>
-            <input className="mb-3 w-100" type="email" onBlur={handleEmail} />
+            <input
+              className="mb-3 w-100"
+              type="email"
+              onBlur={handleEmail}
+              required
+            />
             <br />
             <label>Enter Password</label>
-            <input className="w-100" type="password" onBlur={handlePass} />
+            <input
+              className="w-100"
+              type="password"
+              onBlur={handlePass}
+              required
+            />
             <br />
             <label>Confirm Password</label>
-            <input className="w-100" type="password" onBlur={handleConPass} />
-            <span>Dont have an account?create one </span>
+            <input
+              className="w-100"
+              type="password"
+              onBlur={handleConPass}
+              required
+            />
+            <Link to="/login">Already account?</Link>
             <br />
             <br />
             <input
