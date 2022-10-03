@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import UseAuth from "../../Context/UseAuth";
-import moment from "moment/moment";
 import axios from "axios";
 
 const UpdateCalorie = () => {
@@ -81,7 +79,7 @@ const UpdateCalorie = () => {
               console.log(data);
 
               alert("Successfully Updated");
-              navigate("/home");
+              navigate("/totalCalorie");
               refetch();
             });
         }

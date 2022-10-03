@@ -1,9 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import UseAuth from "../../Context/UseAuth";
 import AddCalorie from "./AddCalorie";
-import RecentCalories from "./RecentCalories";
 
 const Home = () => {
   const user = UseAuth();

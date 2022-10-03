@@ -29,7 +29,7 @@ const TotalCalorie = () => {
         // console.log("after filter length", arrayList.length);
       })
     );
-  }, [searchDate]);
+  }, [searchDate, calories]);
 
   return (
     <div className="container mt-5">

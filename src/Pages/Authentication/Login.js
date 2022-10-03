@@ -45,7 +45,7 @@ const Login = () => {
               required
             />
             <span>
-              Dont have an account? <Link to="/register">create Account</Link>{" "}
+              Dont have an account? <Link to="/register" className="text-info">Create Account</Link>{" "}
             </span>
             <br />
             <br />

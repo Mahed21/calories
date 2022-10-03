@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../Context/UseAuth";
@@ -68,7 +67,9 @@ const Register = () => {
               onBlur={handleConPass}
               required
             />
-            <Link to="/login">Already account?</Link>
+            <span>
+              Already have an account? <Link to="/login" className="text-info">Login</Link>
+            </span>
             <br />
             <br />
             <input
