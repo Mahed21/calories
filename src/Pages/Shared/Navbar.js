@@ -15,20 +15,20 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <div className="d-flex">
               <li className="nav-item">
-                <Link to="/" type="button" className="btn btn-light me-1">
+                <Link to="/" type="button" className="btn btn-light">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" type="button" className="btn btn-light me-1">
+                <Link to="/about" type="button" className="btn btn-light">
                   About
                 </Link>
               </li>
               {isAuthenticated ? (
                 <>
-                  <li className="nav-item ms-2">
+                  <li className="nav-item">
                     <Link to="/totalCalorie">
-                      <button type="button" className="btn btn-light me-1">
+                      <button type="button" className="btn btn-light me-2">
                         Saved Calories
                       </button>
                     </Link>
