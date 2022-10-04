@@ -1,15 +1,14 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { format } from "date-fns";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-
-import UseAuth from "../../Context/UseAuth";
 import TotalCalorieRow from "./TotalCalorieRow";
 
 const TotalCalorie = () => {
-  const user = UseAuth();
-  const email = user?.user?.email;
+  const { user } = useAuth0()
+  const email = user?.email;
   let arrayList = [];
 
   const [selected, setSelected] = useState(new Date());

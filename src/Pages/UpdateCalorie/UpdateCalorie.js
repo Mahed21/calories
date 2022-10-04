@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
-import UseAuth from "../../Context/UseAuth";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const UpdateCalorie = () => {
   const nameRef = useRef();
@@ -10,18 +10,6 @@ const UpdateCalorie = () => {
   const calorieRef = useRef();
   const [selectedImage, setSelectedImage] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
-  // const [name, setName] = useState("");
-  // const [quantity, setQuantity] = useState("");
-  // const [calories, setCalories] = useState("");
-  // const handleName = (e) => {
-  //     setName(e.target.value);
-  // };
-  // const handleQuantity = (e) => {
-  //     setQuantity(e.target.value);
-  // };
-  // const handleCalorie = (e) => {
-  //     setCalories(e.target.value);
-  // };
 
   const { _id } = useParams();
   const {
@@ -35,7 +23,8 @@ const UpdateCalorie = () => {
   );
 
   let navigate = useNavigate();
-  const { user } = UseAuth();
+  const { user } = useAuth0()
+  const email = user?.email;
   let today = singleCalorie?.date;
 
   const onSubmit = (e) => {
@@ -63,7 +52,7 @@ const UpdateCalorie = () => {
             calorieCount: calorie,
             quantity: quantity,
             date: today,
-            email: user?.email,
+            email: email,
             totalCalorieCount: totalCalorieCount,
             img: uploadedImage,
           };

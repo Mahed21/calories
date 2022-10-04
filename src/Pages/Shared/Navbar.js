@@ -1,11 +1,10 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { Link } from "react-router-dom";
-import UseAuth from "../../Context/UseAuth";
 
 const Navbar = () => {
-  const { user, Logout } = UseAuth();
-  // console.log(user);
-  // console.log(user.email);
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0()
+  console.log(user);
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -25,43 +24,37 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
-              {user.email ? (
-                <li className="nav-item ms-2">
-                  <Link to="/totalCalorie">
-                    <button type="button" className="btn btn-light me-1">
-                      Saved Calories
+              {isAuthenticated ? (
+                <>
+                  <li className="nav-item ms-2">
+                    <Link to="/totalCalorie">
+                      <button type="button" className="btn btn-light me-1">
+                        Saved Calories
+                      </button>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => logout({ returnTo: window.location.origin })}
+                    >
+                      Logout
                     </button>
-                  </Link>
-                </li>
-              ) : (
-                ""
-              )}
-              {!user.email ? (
-                <li className="nav-item">
-                  <Link to="/login">
-                    {" "}
-                    <button type="button" className="btn btn-danger">
-                      Login
-                    </button>
-                  </Link>
-                </li>
+                  </li>
+                </>
               ) : (
                 <li className="nav-item">
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={Logout}
-                  >
-                    Logout
+                  <button onClick={() => loginWithRedirect()} type="button" className="btn btn-danger">
+                    Login
                   </button>
                 </li>
               )}
-
             </div>
           </ul>
         </div>
-      </div>
-    </nav>
+      </div >
+    </nav >
   );
 };
 

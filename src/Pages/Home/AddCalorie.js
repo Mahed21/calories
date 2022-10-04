@@ -1,14 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "react-day-picker/dist/style.css";
-import UseAuth from "../../Context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import moment from "moment/moment";
 import "./Home.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const AddCalorie = () => {
   let navigate = useNavigate();
-  const { user } = UseAuth();
+  const { user, isAuthenticated } = useAuth0()
+  const email = user?.email;
   let today = new Date();
   const {
     register,
@@ -18,7 +19,7 @@ const AddCalorie = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (user.email) {
+    if (email) {
       const quantity = parseInt(data.quantity);
       const calorieCount = parseInt(data.calorieCount);
 
@@ -29,7 +30,7 @@ const AddCalorie = () => {
         calorieCount: data.calorieCount,
         quantity: data.quantity,
         date: moment(today).format("MMM Do YY"),
-        email: user.email,
+        email: email,
         totalCalorieCount: totalCalorieCount,
       };
       fetch(`http://localhost:5000/calorie`, {
@@ -124,12 +125,14 @@ const AddCalorie = () => {
               defaultValue={moment(today).format("MMM Do YY")}
               readOnly
             />
-          </div>
-          <input
-            className="loginBtn ps-4 pe-4 pt-2 pb-2"
-            type="submit"
-            value="Save"
-          />
+          </div>{
+            isAuthenticated &&
+            <input
+              className="loginBtn ps-4 pe-4 pt-2 pb-2"
+              type="submit"
+              value="Save"
+            />
+          }
         </form>
       </div>
     </div>

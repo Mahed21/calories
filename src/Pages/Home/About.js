@@ -149,7 +149,7 @@ const About = () => {
             you burn in 30 minutes. The estimates are for a person weighing 125
             pounds.
           </p>
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Activity</th>

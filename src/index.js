@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Auth0ProviderWithHistory from './auth0Provider';
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <App />
+        <Auth0ProviderWithHistory>
+          <App />
+        </Auth0ProviderWithHistory>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>
