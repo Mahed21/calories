@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment/moment";
 import "./Home.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import '../Authentication/Authentication.css';
 
 const AddCalorie = () => {
   let navigate = useNavigate();
