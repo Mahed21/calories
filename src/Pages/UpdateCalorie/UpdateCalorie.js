@@ -18,7 +18,7 @@ const UpdateCalorie = () => {
     refetch,
   } = useQuery("singleCalorie", () =>
     fetch(
-      `https://calories-new-server-8v018vu3g-7rahib.vercel.app/calorie/${_id}`
+      `https://newcalorie.onrender.com/calorie/${_id}`
     ).then((res) => res.json())
   );
 
@@ -56,7 +56,7 @@ const UpdateCalorie = () => {
             totalCalorieCount: totalCalorieCount,
             img: uploadedImage,
           };
-          fetch(`http://localhost:5000/calorie/${_id}`, {
+          fetch(`https://newcalorie.onrender.com/calorie/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

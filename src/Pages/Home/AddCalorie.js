@@ -34,7 +34,7 @@ const AddCalorie = () => {
         email: email,
         totalCalorieCount: totalCalorieCount,
       };
-      fetch(`http://localhost:5000/calorie`, {
+      fetch(`https://newcalorie.onrender.com/calorie`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
